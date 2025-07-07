@@ -1,67 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- 页面标题 / Page Title -->
+  <title>Jstar Cannabis Shop | Product List</title>
+
+  <!-- SEO 元标签 / SEO Meta Tags -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jstar Cannabis Shop - Products</title>
-  <link href="../libs/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../styles/style.css">
-  <script src="../libs/sweetalert2.min.js"></script>
-  <script src="../scripts/common.js" defer></script>
+  <meta name="description" content="Premium cannabis products - flowers, oils, vapes and more!">
+  <meta name="keywords" content="Cannabis, Weed, THC, CBD, Flower, Oil">
+  <meta property="og:title" content="Jstar Cannabis Shop">
+
+  <!-- 字体引入 / Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- 图标库 / Icon Fonts -->
+  <script src="https://kit.fontawesome.com/a2c5c4b5d6.js" crossorigin="anonymous"></script>
+
+  <!-- TailwindCSS CDN -->
+  <link href="/libs/tailwind.min.css" rel="stylesheet">
+
+  <!-- 自定义样式 / Custom Styles -->
+  <link href="/styles/style.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-800">
-  <!-- 顶部导航栏 / Top Navigation Bar -->
-  <header class="bg-white shadow sticky top-0 z-50">
+  
+  <!-- 顶部导航栏 / Top Navigation Bar (reuse) -->
+  <header class="bg-white shadow">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold">Jstar 🌿</h1>
+      <h1 class="text-xl font-bold">Jstar Cannabis Shop</h1>
       <nav class="space-x-4">
-        <a href="../index.html" class="hover:text-green-500">Home</a>
-        <a href="list.html" class="text-green-600 font-semibold">Products</a>
-        <a href="../pages/about.html" class="hover:text-green-500">About</a>
+        <a href="/index.html" class="hover:text-green-600">Home</a>
+        <a href="/products/list.html" class="text-green-600 font-semibold">Shop</a>
+        <a href="/user/profile.html#points">Points</a>
+        <a href="/pages/about.html">About</a>
       </nav>
     </div>
   </header>
 
-  <!-- 分类导航 + 搜索 / Category Filters + Search -->
-  <section class="bg-white py-4 shadow-md">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between gap-4 items-center">
-      <!-- 分类按钮 / Category Buttons -->
-      <div class="flex gap-2 flex-wrap">
-        <button class="px-4 py-2 bg-green-100 hover:bg-green-300 rounded">Flower</button>
-        <button class="px-4 py-2 bg-green-100 hover:bg-green-300 rounded">Oil</button>
-        <button class="px-4 py-2 bg-green-100 hover:bg-green-300 rounded">Edibles</button>
-      </div>
-      <!-- 搜索框 / Search Box -->
-      <input type="text" placeholder="Search strain or effect..." class="border px-4 py-2 rounded w-full md:w-1/3">
+  <!-- 分类导航 / Category Filter Navigation -->
+  <section class="bg-green-100 py-4">
+    <div class="max-w-7xl mx-auto px-4 flex gap-4 overflow-x-auto">
+      <button class="bg-white px-4 py-2 rounded shadow text-sm">All</button>
+      <button class="bg-white px-4 py-2 rounded shadow text-sm">Flowers</button>
+      <button class="bg-white px-4 py-2 rounded shadow text-sm">Oils</button>
+      <button class="bg-white px-4 py-2 rounded shadow text-sm">Edibles</button>
+      <button class="bg-white px-4 py-2 rounded shadow text-sm">Accessories</button>
     </div>
   </section>
 
-  <!-- 产品展示区域 / Product Grid Area -->
-  <main class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    <!-- 单个产品卡片 / Product Card -->
-    <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
-      <img src="../assets/images/sample.jpg" alt="Product Image" class="rounded-t-lg">
+  <!-- 搜索框 / Search Bar -->
+  <section class="max-w-7xl mx-auto px-4 py-4">
+    <input type="text" id="searchInput" placeholder="Search by name or tag..." class="w-full p-2 border rounded" />
+  </section>
+
+  <!-- 筛选器区域 / Filter Section -->
+  <section class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-4 pb-4">
+    <div>
+      <label class="block text-sm">Price Range ($)</label>
+      <input type="range" min="0" max="200" value="100" class="w-full">
+    </div>
+    <div>
+      <label class="block text-sm">Product Type</label>
+      <select class="w-full border p-2 rounded">
+        <option>All</option>
+        <option>Indica</option>
+        <option>Sativa</option>
+        <option>Hybrid</option>
+      </select>
+    </div>
+    <div>
+      <label class="block text-sm">THC Level (%)</label>
+      <input type="number" placeholder="e.g. 22" class="w-full border p-2 rounded">
+    </div>
+  </section>
+
+  <!-- 商品列表 / Product List Container -->
+  <section class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 pb-10">
+    <!-- 单一商品卡片 / Product Card -->
+    <div class="bg-white shadow rounded overflow-hidden">
+      <img src="/assets/images/sample1.jpg" alt="Flower" class="w-full h-40 object-cover">
       <div class="p-4">
-        <h2 class="text-lg font-bold">Purple Haze OG</h2>
-        <p class="text-sm text-gray-500">THC: 22% | Hybrid</p>
-        <p class="text-green-600 font-bold mt-1">$35 / gram</p>
-        <a href="detail.html?id=1" class="block text-center mt-2 text-white bg-green-500 hover:bg-green-600 px-4 py-2 rounded">View Details</a>
+        <h3 class="font-semibold text-lg">Purple Haze</h3>
+        <p class="text-sm text-gray-500">THC: 21%</p>
+        <p class="text-green-600 font-bold mt-2">$40 / 3.5g</p>
+        <a href="detail.html?id=1" class="mt-2 inline-block text-sm text-green-700 underline">View Details</a>
       </div>
     </div>
-    <!-- 更多产品卡片... / More product cards -->
-  </main>
+    <!-- More Product Cards... -->
+  </section>
 
-  <!-- 分页导航 / Pagination Controls -->
-  <div class="flex justify-center py-6 gap-2">
-    <button class="px-3 py-1 border rounded hover:bg-gray-100">«</button>
-    <button class="px-3 py-1 bg-green-500 text-white rounded">1</button>
-    <button class="px-3 py-1 border rounded hover:bg-gray-100">2</button>
-    <button class="px-3 py-1 border rounded hover:bg-gray-100">»</button>
-  </div>
+  <!-- 分页器 / Pagination -->
+  <section class="max-w-7xl mx-auto px-4 pb-10 text-center">
+    <button class="bg-gray-300 px-3 py-1 rounded">Prev</button>
+    <button class="bg-gray-300 px-3 py-1 rounded mx-1">1</button>
+    <button class="bg-gray-300 px-3 py-1 rounded">2</button>
+    <button class="bg-gray-300 px-3 py-1 rounded">Next</button>
+  </section>
 
   <!-- 页脚 / Footer -->
-  <footer class="bg-white py-6 text-center text-sm text-gray-500">
-    © 2025 Jstar Cannabis Shop. All rights reserved.
+  <footer class="bg-gray-200 py-6 text-center text-sm">
+    <p>&copy; 2025 Jstar Cannabis Shop. All rights reserved.</p>
+    <div class="space-x-4">
+      <a href="/pages/privacy.html">Privacy Policy</a>
+      <a href="/pages/terms.html">Terms</a>
+      <a href="/customer_service/chat.html">Customer Service</a>
+    </div>
   </footer>
+
+  <!-- JS 逻辑链接描述 -->
+  <!--
+    - searchInput 绑定到 /scripts/common.js 中的搜索逻辑
+    - 商品列表和分页的 JS 都可用自定义组件写到 cart.js / common.js
+  -->
+  <script src="/scripts/common.js"></script>
 </body>
-</html> 
+</html>
