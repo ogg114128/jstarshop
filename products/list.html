@@ -1,1 +1,67 @@
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jstar Cannabis Shop - Products</title>
+  <link href="../libs/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/style.css">
+  <script src="../libs/sweetalert2.min.js"></script>
+  <script src="../scripts/common.js" defer></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- 顶部导航栏 / Top Navigation Bar -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Jstar 🌿</h1>
+      <nav class="space-x-4">
+        <a href="../index.html" class="hover:text-green-500">Home</a>
+        <a href="list.html" class="text-green-600 font-semibold">Products</a>
+        <a href="../pages/about.html" class="hover:text-green-500">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 分类导航 + 搜索 / Category Filters + Search -->
+  <section class="bg-white py-4 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between gap-4 items-center">
+      <!-- 分类按钮 / Category Buttons -->
+      <div class="flex gap-2 flex-wrap">
+        <button class="px-4 py-2 bg-green-100 hover:bg-green-300 rounded">Flower</button>
+        <button class="px-4 py-2 bg-green-100 hover:bg-green-300 rounded">Oil</button>
+        <button class="px-4 py-2 bg-green-100 hover:bg-green-300 rounded">Edibles</button>
+      </div>
+      <!-- 搜索框 / Search Box -->
+      <input type="text" placeholder="Search strain or effect..." class="border px-4 py-2 rounded w-full md:w-1/3">
+    </div>
+  </section>
+
+  <!-- 产品展示区域 / Product Grid Area -->
+  <main class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <!-- 单个产品卡片 / Product Card -->
+    <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+      <img src="../assets/images/sample.jpg" alt="Product Image" class="rounded-t-lg">
+      <div class="p-4">
+        <h2 class="text-lg font-bold">Purple Haze OG</h2>
+        <p class="text-sm text-gray-500">THC: 22% | Hybrid</p>
+        <p class="text-green-600 font-bold mt-1">$35 / gram</p>
+        <a href="detail.html?id=1" class="block text-center mt-2 text-white bg-green-500 hover:bg-green-600 px-4 py-2 rounded">View Details</a>
+      </div>
+    </div>
+    <!-- 更多产品卡片... / More product cards -->
+  </main>
+
+  <!-- 分页导航 / Pagination Controls -->
+  <div class="flex justify-center py-6 gap-2">
+    <button class="px-3 py-1 border rounded hover:bg-gray-100">«</button>
+    <button class="px-3 py-1 bg-green-500 text-white rounded">1</button>
+    <button class="px-3 py-1 border rounded hover:bg-gray-100">2</button>
+    <button class="px-3 py-1 border rounded hover:bg-gray-100">»</button>
+  </div>
+
+  <!-- 页脚 / Footer -->
+  <footer class="bg-white py-6 text-center text-sm text-gray-500">
+    © 2025 Jstar Cannabis Shop. All rights reserved.
+  </footer>
+</body>
+</html> 
